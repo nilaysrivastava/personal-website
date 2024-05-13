@@ -52,7 +52,7 @@ const EmailForm = () => {
         
       >
         <div style={{
-          // backgroundColor: 'rgba(255, 255, 255, 0.15)', /* Semi-transparent white background */
+          backgroundColor: "black",
           backdropFilter: 'blur(5px)', /* Apply a blur effect */
           borderRadius: '20px', /* Rounded corners */
           boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */

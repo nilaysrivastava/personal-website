@@ -17,11 +17,11 @@ const Hero = () => {
         {/*container*/}
         <div className="grid items-center gap-5 mx-8 justify-items-center lg:grid-cols-2 "
         style={{
-          // backgroundColor: 'rgba(255, 255, 255, 0.15)', /* Semi-transparent white background */
+          backgroundColor: "black", /* Semi-transparent white background */
           backdropFilter: 'blur(5px)', /* Apply a blur effect */
           borderRadius: '20px', /* Rounded corners */
           boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */
-          padding: '20px', /* Add padding as needed */
+          padding: '20px',
           height:"60vh",
           border: '1px solid #8B5CF6',
         }}>

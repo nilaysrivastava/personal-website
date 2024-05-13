@@ -18,15 +18,7 @@ const Skills = () => {
       <div className="flex flex-col items-center justify-center w-full min-h-screen">
         {/*container*/}
         <div className="grid items-center gap-8 justify-items-center"
-        style={{
-          // backgroundColor: 'rgba(255, 255, 255, 0.15)', /* Semi-transparent white background */
-          backdropFilter: 'blur(5px)', /* Apply a blur effect */
-          borderRadius: '20px', /* Rounded corners */
-          boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */
-          padding: '20px', /* Add padding as needed */
-          height:"60vh",
-          border: '1px solid #8B5CF6',
-        }}>
+        >
           {/*title*/}
           <motion.div
             className="text-3xl font-bold text-center md:text-4xl lg:text-5xl text-purple-500 "

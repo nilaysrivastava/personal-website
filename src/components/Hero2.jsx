@@ -27,7 +27,7 @@ const Hero2 = () => {
         {/*container*/}
         <div className="grid items-center gap-4 md:gap-6 lg:gap-8 justify-items-center lg:grid-cols-2" 
         style={{
-          // backgroundColor: 'rgba(255, 255, 255, 0.15)', /* Semi-transparent white background */
+          backgroundColor: "black", /* Semi-transparent white background */
           backdropFilter: 'blur(5px)', /* Apply a blur effect */
           borderRadius: '20px', /* Rounded corners */
           boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */
