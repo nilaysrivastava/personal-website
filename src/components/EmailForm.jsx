@@ -23,6 +23,7 @@ const EmailForm = () => {
       "service_ovqgs3v",
       "template_odtq3pn",
       form.current,
+      templateParams,
       "qOBmYqpsDoyYylW0x"
     )
     .then((response) => {
@@ -39,6 +40,13 @@ const EmailForm = () => {
     .finally(() => {
       setSending(false);
     });
+
+    const templateParams={
+      from_name: name,
+      from_email: email,
+      to_name: "Nilay Srivastava",
+      message: message
+    }
   };
 
   return (
@@ -53,10 +61,10 @@ const EmailForm = () => {
       >
         <div style={{
           backgroundColor: "black",
-          backdropFilter: 'blur(5px)', /* Apply a blur effect */
-          borderRadius: '20px', /* Rounded corners */
-          boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */
-          padding: '1rem', /* Add padding as needed */
+          backdropFilter: 'blur(5px)',
+          borderRadius: '20px',
+          boxShadow: '0px 12px 32px 0px purple',
+          padding: '1rem',
           border: '1px solid #8B5CF6',
         }}>
         {/*title*/}
