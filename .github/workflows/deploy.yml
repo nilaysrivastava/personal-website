@@ -31,6 +31,9 @@ jobs:
           name: production-files
           path: ./dist
 
+      - name: Update Node.js versions
+                uses: hongaar/update-node-versions@v2.2.0
+                
   deploy:
     name: Deploy
     needs: build
@@ -49,3 +52,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+                        
+            
