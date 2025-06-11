@@ -4,50 +4,37 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer>
-      {/* Left-side vertical social links (large screens only) */}
-      <div className="hidden lg:flex fixed left-0 bottom-0 z-50 flex-col items-center space-y-6 px-4 py-4">
-        <div className="flex flex-col items-center space-y-4 text-purple-500">
-          <a
-            href="https://www.linkedin.com/in/nilay-srivastava-29939a205/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      {/* left-side social */}
+      <div className="hidden xxl:flex fixed bottom-[160px] -left-[100px] rotate-90">
+        <div className="flex items-center gap-3 text-purple-500 cursor-pointer">
+          <a href="https://www.linkedin.com/in/nilay-srivastava-29939a205/">
             <FaLinkedin
-              size={28}
-              className="hover:scale-110 transition-transform"
+              size={30}
+              className="duration-100 -rotate-90 hover:scale-110"
             />
           </a>
-          <a
-            href="https://github.com/nilaysrivastava"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/nilaysrivastava">
             <FaGithub
-              size={28}
-              className="hover:scale-110 transition-transform"
+              size={30}
+              className="duration-100 -rotate-90 hover:scale-110"
             />
           </a>
-          <a
-            href="https://www.instagram.com/nilaysriivastava/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/nilaysriivastava/">
             <FaInstagram
-              size={28}
-              className="hover:scale-110 transition-transform"
+              size={30}
+              className="duration-100 -rotate-90 hover:scale-110"
             />
           </a>
-          <div className="w-[2px] h-24 bg-gray-300 mt-4" />
+          {/* <a href="https://lafayenbros.itch.io/"><FaItchIo size={30} className='duration-100 -rotate-90 hover:scale-110' /></a> */}
+          <hr className="w-[140px] border-2 border-gray-300" />
         </div>
       </div>
 
-      {/* Right-side rotated email (large screens only) */}
-      <div className="hidden lg:flex fixed right-0 bottom-0 z-50 flex-col items-center px-4 py-4">
-        <div className="flex flex-col items-center text-purple-500">
-          <div className="rotate-90 origin-bottom mb-4 text-sm font-medium tracking-widest">
-            nilay2103@gmail.com
-          </div>
-          <div className="w-[2px] h-24 bg-gray-300" />
+      {/* right-side email */}
+      <div className=" hidden xxl:flex fixed bottom-[190px] right-[-130px] rotate-90">
+        <div className="flex items-center gap-3 text-purple-500">
+          <p className="font-semibold">nilay2103@gmail.com</p>
+          <hr className="w-[150px] border-2 border-gray-300" />
         </div>
       </div>
     </footer>
