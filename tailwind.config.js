@@ -1,22 +1,18 @@
-/** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
 
-export default ({
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend:{
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        xxl: "1440px",
+    extend: {
+      colors: {
+        glow: "#a855f7",
       },
-      colors:  {
-        v: '#7c7cb3',
-        vBtnHover: "#5b5bae",
-      }
-    }
-
+    },
   },
-  plugins: ["prettier-plugin-tailwindcss"],
-});
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function ({ addVariant }) {
+      addVariant("glow", ".glow-capture .glow-overlay &");
+    }),
+  ],
+};

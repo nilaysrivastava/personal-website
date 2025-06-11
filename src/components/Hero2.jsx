@@ -8,7 +8,7 @@ const Hero2 = () => {
   const name = "About me.".split("");
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen px-4 py-10 sm:px-8 lg:px-16 pt-32">
+    <section className="flex flex-col items-center justify-center min-h-screen px-4 py-10 sm:px-8 lg:px-16">
       <div className="grid gap-8 rounded-3xl border border-purple-500 p-6 sm:p-10 shadow-[0px_12px_32px_0px_purple] backdrop-blur-sm bg-black/80 w-full max-w-6xl lg:grid-cols-2">
         {/* Image */}
         <div className="flex justify-center lg:order-1">

@@ -36,7 +36,7 @@ const Responsibility = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center px-4 py-12 sm:px-8 lg:px-16 gap-6 pt-48">
+    <section className="flex flex-col items-center min-h-screen justify-center px-4 py-12 sm:px-8 lg:px-16 gap-6">
       {/* Heading with letter animation */}
       <motion.div
         className="text-purple-500 font-bold text-3xl sm:text-4xl md:text-5xl text-center pb-10"

@@ -45,7 +45,6 @@ const Header = () => {
           <img className="h-8 md:max-h-9" src={Logo} alt="Logo image" />
         </Link>
 
-        {/* Desktop Nav Links - Custom CSS for tablet/desktop */}
         <ul
           className="gap-10"
           style={{

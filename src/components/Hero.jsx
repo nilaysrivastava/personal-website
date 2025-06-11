@@ -18,8 +18,9 @@ const Hero = () => {
   const name = "Nilay Srivastava".split("");
 
   return (
-    <section className="flex items-center justify-center min-h-screen px-4 py-10 sm:px-8 lg:px-16">
-      <div className="grid gap-8 rounded-3xl border border-purple-500 p-6 sm:p-10 shadow-[0px_12px_32px_0px_purple] backdrop-blur-sm bg-black/80 w-full max-w-6xl lg:grid-cols-2">
+    <section className="relative glow-capture flex items-center justify-center min-h-screen px-4 py-10 sm:px-8 lg:px-16">
+      <div className="glow-overlay absolute z-0"></div>
+      <div className="relative z-10 grid gap-8 rounded-3xl border border-purple-500 p-6 sm:p-10 shadow-[0px_12px_32px_0px_purple] backdrop-blur-sm bg-black/80 w-full max-w-6xl lg:grid-cols-2">
         {/* Avatar + Social Icons */}
         <div className="flex flex-col items-center gap-4 lg:order-1">
           <motion.img
@@ -105,7 +106,7 @@ const Hero = () => {
         {/* Text content */}
         <div className="flex flex-col items-center text-center lg:items-end lg:text-right gap-3">
           <motion.p
-            className="text-white text-xl sm:text-base md:text-2xl"
+            className="text-white text-xl sm:text-base md:text-2xl pb-4"
             variants={fadeIn("down", 0.1)}
             initial="hidden"
             whileInView="show"
@@ -135,10 +136,10 @@ const Hero = () => {
             whileInView="show"
             viewport={{ once: false, amount: 0.7 }}
           >
-            <h2 className="text-neutral-500 text-base sm:text-xl md:text-2xl font-semibold pb-6 pt-6">
+            <h2 className="text-neutral-500 text-base sm:text-xl md:text-2xl font-semibold pb-8 pt-6">
               I'm a
             </h2>
-            <span className="text-neutral-100 text-base sm:text-xl md:text-2xl font-semibold pb-6 pt-6">
+            <span className="text-neutral-100 text-base sm:text-xl md:text-2xl font-semibold pb-8 pt-6">
               <Typewriter
                 words={[
                   "Full Stack Software Developer",
@@ -156,7 +157,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-neutral-400 text-sm sm:text-base max-w-[320px] sm:max-w-md md:max-w-lg pb-2"
+            className="text-neutral-400 text-sm sm:text-base max-w-[320px] sm:max-w-md md:max-w-lg pb-9"
             variants={fadeIn("down", 0.4)}
             initial="hidden"
             whileInView="show"

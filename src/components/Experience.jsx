@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 import { FaBriefcase } from "react-icons/fa";
-import TextSpan from "../utils/textSpan"; // Make sure this path is correct
+import TextSpan from "../utils/textSpan";
 
 const Experience = () => {
   const heading = "Experience".split("");
 
   return (
-    <section className="flex flex-col items-center justify-center px-4 py-12 sm:px-8 lg:px-16 gap-6 pt-32">
+    <section className="flex flex-col items-center justify-center min-h-screen px-4 py-12 sm:px-8 lg:px-16 gap-6">
       {/* Animated Heading */}
       <motion.div
         className="text-purple-500 font-bold text-3xl sm:text-4xl md:text-5xl text-center pb-10"
