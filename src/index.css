@@ -45,3 +45,33 @@
   @apply font-bold border-b-4 border-[#7c7cb3] duration-300 transition-all ease-in-out;
 }
 
+.color-empty {
+  fill: #2d2d2d;
+}
+.color-scale-1 {
+  fill: #7f5af0;
+}
+.color-scale-2 {
+  fill: #6246ea;
+}
+.color-scale-3 {
+  fill: #5234e0;
+}
+.color-scale-4 {
+  fill: #3d26d3;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

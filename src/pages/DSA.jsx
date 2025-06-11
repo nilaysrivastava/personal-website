@@ -1,7 +1,6 @@
-import React from "react";
-import Hero from "../components/Hero";
+import DSAProgress from "../components/DSAProgress";
 
-const Home = () => {
+const DSA = () => {
   return (
     <main
       className="min-h-screen"
@@ -12,9 +11,9 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Hero />
+      <DSAProgress />
     </main>
   );
 };
 
-export default Home;
+export default DSA;

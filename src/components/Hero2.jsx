@@ -2,130 +2,80 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 import TextSpan from "../utils/textSpan";
-import { FiDownload, FiEye } from "react-icons/fi";
 import about from "../images/Nilay-About.png";
-import Cv from "../constants/resume.pdf";
-import { FaArrowDown } from "react-icons/fa";
-
-const scrollToBottom = () => {
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: "smooth"
-  });
-};
-
-const openResumeInNewTab = () => {
-  window.open(Cv, "_blank");
-};
 
 const Hero2 = () => {
   const name = "About me.".split("");
 
   return (
-    <section style={{ paddingTop: "3rem" }}>
-      <div className="flex flex-col items-center justify-center w-full min-h-screen text-neutral-800 ">
-        {/*container*/}
-        <div className="grid items-center gap-4 md:gap-6 lg:gap-8 justify-items-center lg:grid-cols-2" 
-        style={{
-          backgroundColor: "black", /* Semi-transparent white background */
-          backdropFilter: 'blur(5px)', /* Apply a blur effect */
-          borderRadius: '20px', /* Rounded corners */
-          boxShadow: '0px 12px 32px 0px purple', /* Soft shadow */
-          padding: '20px', /* Add padding as needed */
-          border: '1px solid #8B5CF6',
-        }}>
-          {/*image*/}
-          <div className=" w-[200px] md:w-[300px] lg:w-[400px] xxl:w-[500px]">
-            <motion.img
-              variants={fadeIn("up", 0.1)}
-              initial={"hidden"}
-              whileInView={"show"}
-              viewport={{ once: true, amount: 0.7 }}
-              src={about}
-              alt="An image of Nilay Srivastava"
-            />
-          </div>
-          {/*text-box*/}
-          <div className="grid items-center gap-1 md:gap-2 lg:gap-3 justify-items-center w-[300px] md:w-[400px]">
-            {/*title*/}
-            <motion.div
-              className="text-3xl font-bold text-center md:text-4xl lg:text-5xl text-purple-500"
-              variants={fadeIn("down", 0.1)}
-              initial={"hidden"}
-              whileInView={"show"}
-              viewport={{ once: true, amount: 0.7 }}
-            >
-              {name.map((letter, index) => {
-                return (
-                  <TextSpan key={index}>
-                    {letter === " " ? "\u00A0" : letter}
-                  </TextSpan>
-                );
-              })}
-            </motion.div>
-            {/*text*/}
-            <div className="flex flex-col text-justify text-neutral-400 ">
-              <motion.p
-                variants={fadeIn("down", 0.2)}
-                initial={"hidden"}
-                whileInView={"show"}
-                viewport={{ once: true, amount: 0.7 }}
-              >
-                Passionate about continuous improvement and expanding my skill set, I specialize in crafting robust, high-performing solutions. With expertise in front-end technologies like ReactJS, Next.js, Bootstrap, MaterialUI, and TailwindCSS, complemented by a strong backend development background which includes Node.js, Express.js, MongoDB, PostgreSQL, and Firebase, I deliver innovative solutions tailored to diverse project needs. This combination of front-end and back-end expertise enables me to create seamless integration between front-end and backend systems for efficient and scalable applications.
-
-              </motion.p>
-            </div>
-            {/*cv buttons*/}
-            <div className="flex flex-row gap-2">
-            <motion.div
-                className="px-5 py-2 text-sm font-bold uppercase border-b-4 rounded-full bg-vBtn bg-purple-500 hover:bg-purple-800 border-purple-800 hover:border-purple-500"
-                variants={fadeIn("down", 0.3)}
-                initial={"hidden"}
-                whileInView={"show"}
-                viewport={{ once: true, amount: 0.7 }}
-                onClick={openResumeInNewTab}
-              >
-                <div className="flex items-center gap-2">
-                  <FiEye size={20} />
-                  <p className="font-semibold">View Resume</p>
-                </div>
-              </motion.div>
-              <motion.div
-                className="px-5 py-2 text-sm font-bold uppercase border-b-4 rounded-full bg-vBtn bg-purple-500 hover:bg-purple-800 border-purple-800 hover:border-purple-500"
-                variants={fadeIn("down", 0.3)}
-                initial={"hidden"}
-                whileInView={"show"}
-                viewport={{ once: true, amount: 0.7 }}
-                onClick={openResumeInNewTab}
-              >
-                <div className="flex items-center gap-2">
-                  <FiDownload size={20} />
-                  <p className="font-semibold">Download Resume</p>
-                </div>
-              </motion.div>
-              
-            </div>
-          </div>
+    <section className="flex flex-col items-center justify-center min-h-screen px-4 py-10 sm:px-8 lg:px-16 pt-32">
+      <div className="grid gap-8 rounded-3xl border border-purple-500 p-6 sm:p-10 shadow-[0px_12px_32px_0px_purple] backdrop-blur-sm bg-black/80 w-full max-w-6xl lg:grid-cols-2">
+        {/* Image */}
+        <div className="flex justify-center lg:order-1">
+          <motion.img
+            className="w-[180px] sm:w-[240px] md:w-[300px] lg:w-[350px] xl:w-[400px]"
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.7 }}
+            src={about}
+            alt="Nilay Srivastava"
+          />
         </div>
-        <motion.div
-        variants={fadeIn("down", 0.1)}
-        initial={"hidden"}
-        whileInView={"show"}
-        viewport={{ once: true, amount: 0.7 }}
-          style={{
-            marginTop: "2rem",
-            paddingTop: "2rem",
-            color: "white",
-            cursor: "pointer",
-            display: "flex",
-            flexDirection: "column",
-            justifyItems: "center",
-            alignItems: "center"
-          }}
-          onClick={scrollToBottom}
-        >
-          <FaArrowDown /> Scroll Down
-        </motion.div>
+
+        {/* Text content */}
+        <div className="flex flex-col items-center text-center lg:items-end lg:text-right gap-3">
+          {/* Title */}
+          <motion.div
+            className="text-purple-500 font-bold text-3xl sm:text-4xl md:text-5xl"
+            variants={fadeIn("down", 0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.7 }}
+          >
+            {name.map((letter, index) => (
+              <TextSpan key={index}>
+                {letter === " " ? "\u00A0" : letter}
+              </TextSpan>
+            ))}
+          </motion.div>
+
+          {/* Description */}
+          <motion.p
+            className="text-neutral-400 text-sm sm:text-base max-w-[320px] sm:max-w-md md:max-w-lg"
+            variants={fadeIn("down", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.7 }}
+          >
+            I’m a pre-final year dual-degree (B.Tech + M.Tech) student in
+            Information Technology at ABV-IIITM Gwalior, with a strong
+            foundation in Full-stack Development, DevOps, and Data Structures
+            and Algorithms. I enjoy solving complex problems efficiently and
+            have consistently applied DSA skills in competitive coding and
+            real-world applications. My experience spans building scalable web
+            applications, automating deployments, and managing cloud
+            infrastructure. I’ve also explored machine learning through academic
+            projects and I am currently exploring the AI/ML field.
+          </motion.p>
+
+          {/* Button */}
+          <motion.div
+            className="flex justify-center gap-6 mt-6"
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.7 }}
+          >
+            <a
+              href="https://drive.google.com/file/d/15zBCKUNcuu_Y88nNQfgdxRz_ZKI5eMB5/view?usp=drive_link"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2 border-2 border-purple-600 text-purple-300 hover:bg-purple-600 hover:text-black rounded-full transition-all duration-300"
+            >
+              View Resume
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

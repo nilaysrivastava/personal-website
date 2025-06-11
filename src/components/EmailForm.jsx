@@ -19,25 +19,17 @@ const EmailForm = () => {
     e.preventDefault();
     setSending(true);
 
-    // Define template parameters
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      to_name: "Nilay Srivastava",
-      message: message,
-    };
-
     emailjs
       .sendForm(
-        "service_ovqgs3v",
+        "service_asd9u2u",
         "template_odtq3pn",
         form.current,
-        "qOBmYqpsDoyYylW0x",
-        templateParams // Pass templateParams as the fifth argument
+        "qOBmYqpsDoyYylW0x"
       )
       .then((response) => {
         console.log("Email sent successfully!", response);
         setSent(true);
+        setError(false);
         setName("");
         setEmail("");
         setMessage("");
@@ -45,6 +37,7 @@ const EmailForm = () => {
       .catch((error) => {
         console.error("Error sending email:", error);
         setError(true);
+        setSent(false);
       })
       .finally(() => {
         setSending(false);
@@ -53,102 +46,109 @@ const EmailForm = () => {
 
   return (
     <section>
-      <motion.div
-        className="flex flex-col items-center justify-center min-h-screen gap-4 mx-10"
-        variants={fadeIn("down", 0.1)}
-        initial={"hidden"}
-        whileInView={"show"}
-        viewport={{ once: true, amount: 0.7 }}
-      >
-        <div
-          style={{
-            backgroundColor: "black",
-            backdropFilter: "blur(5px)" /* Apply a blur effect */,
-            borderRadius: "20px" /* Rounded corners */,
-            boxShadow: "0px 12px 32px 0px purple" /* Soft shadow */,
-            padding: "1rem" /* Add padding as needed */,
-            border: "1px solid #8B5CF6",
-            marginTop: "4rem",
-          }}
-        >
-          {/*title*/}
-          <div className="flex flex-col gap-2">
-            <div className="text-3xl font-bold text-center md:text-4xl lg:text-5xl text-purple-500 pb-4 px-4">
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-8 lg:px-20 py-20">
+        <div className="w-full max-w-5xl md:w-3/4 bg-black/80 rounded-3xl shadow-[0px_12px_32px_0px_purple] border border-purple-500 p-6 sm:p-8 lg:p-10">
+          {/* Title */}
+          <motion.div
+            className="flex flex-col gap-2 text-center"
+            variants={fadeIn("down", 0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+          >
+            <div className="text-3xl font-bold md:text-4xl lg:text-5xl text-purple-500 pb-4">
               {heading.map((letter, index) => (
                 <TextSpan key={index}>
                   {letter === " " ? "\u00A0" : letter}
                 </TextSpan>
               ))}
             </div>
-            <p className="text-sm text-center md:text-md lg:text-lg text-neutral-300 pb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-300 pb-4">
               Leave your details and a short message below
             </p>
-          </div>
-          <form ref={form} onSubmit={handleSubmit}>
-            {/*container*/}
-            <div className="w-full mx-auto bg-black rounded-lg shadow-lg p-7 text-purple-500">
-              {/*name and email*/}
-              <div className="flex flex-col md:flex-row md:justify-between md:gap-4">
-                <div className="flex flex-col">
-                  <label className="font-medium">Full name</label>
+          </motion.div>
+
+          {/* Form */}
+          <motion.form
+            ref={form}
+            onSubmit={handleSubmit}
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+          >
+            <div className="bg-black text-purple-500 rounded-2xl p-6 sm:p-4">
+              <div className="flex flex-col md:flex-row md:gap-6">
+                <div className="flex flex-col w-full">
+                  <label className="font-medium mb-1">Full Name</label>
                   <input
                     type="text"
-                    className="w-full h-12 p-5 mb-2 font-light rounded-lg md:h-14 placeholder:text-sm placeholder:opacity-80 placeholder:italic focus:outline-purple-500"
+                    name="from_name" // ✅ Important for EmailJS
+                    className="w-full h-12 md:h-14 p-4 mb-4 rounded-lg placeholder:text-sm placeholder:italic bg-[#1a1a1a] focus:outline-purple-500"
                     placeholder="Enter your name"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    style={{ backgroundColor: "#1a1a1a" }}
                   />
                 </div>
-                <div className="flex flex-col">
-                  <label className="font-medium">Email</label>
+                <div className="flex flex-col w-full">
+                  <label className="font-medium mb-1">Email</label>
                   <input
                     type="email"
-                    className="w-full h-12 p-5 mb-2 font-light rounded-lg md:h-14 placeholder:text-sm placeholder:opacity-80 placeholder:italic focus:outline-purple-500"
+                    name="from_email" // ✅ Important for EmailJS
+                    className="w-full h-12 md:h-14 p-4 mb-4 rounded-lg placeholder:text-sm placeholder:italic bg-[#1a1a1a] focus:outline-purple-500"
                     placeholder="Enter your email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    style={{ backgroundColor: "#1a1a1a" }}
                   />
                 </div>
               </div>
-              <div className="flex flex-col items-center">
-                <div className="w-full">
-                  <label className="font-medium">Message</label>
-                  <textarea
-                    name="message"
-                    className="w-full p-5 mb-3 font-light rounded-lg md:h-48 placeholder:text-sm placeholder:opacity-80 placeholder:italic focus:outline-purple-500 "
-                    placeholder="What would you like to ask me?"
-                    rows={3}
-                    required
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    style={{ backgroundColor: "#1a1a1a" }}
-                  />
-                </div>
+
+              <div className="flex flex-col w-full mt-4">
+                <label className="font-medium mb-1">Message</label>
+                <textarea
+                  name="message" // ✅ Already correct
+                  className="w-full h-32 md:h-40 p-4 rounded-lg mb-4 placeholder:text-sm placeholder:italic bg-[#1a1a1a] focus:outline-purple-500"
+                  placeholder="What would you like to ask me?"
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
+
+              {/* Styled Send Button */}
+              <motion.div
+                className="flex flex-col sm:flex-row justify-center gap-4 mt-4"
+                variants={fadeIn("up", 0.3)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.7 }}
+              >
                 <button
                   type="submit"
-                  value="Send"
-                  className="w-full py-2 text-sm font-semibold text-black border-b-4 rounded-full bg-purple-500 hover:bg-purple-800 border-purple-800 hover:border-purple-500"
                   disabled={sending}
+                  className="w-full sm:w-auto px-5 py-2 border-2 border-purple-600 text-purple-300 hover:bg-purple-600 hover:text-black rounded-full transition-all duration-300 text-center font-medium"
                 >
-                  {sending ? "Sending Message..." : "Send Message"}
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
-                {sent && (
-                  <p className="mt-2 text-green-500">Sent with success!</p>
-                )}
-                {error && (
-                  <p className="mt-2 text-red-500">
-                    Error sending message. Try later!
-                  </p>
-                )}
-              </div>
+              </motion.div>
+
+              {/* Success/Error Messages */}
+              {sent && (
+                <p className="mt-4 text-green-500 text-center">
+                  Sent with success!
+                </p>
+              )}
+              {error && (
+                <p className="mt-4 text-red-500 text-center">
+                  Error sending message. Try later!
+                </p>
+              )}
             </div>
-          </form>
+          </motion.form>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
